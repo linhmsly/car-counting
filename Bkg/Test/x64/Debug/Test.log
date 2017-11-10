@@ -1,0 +1,13 @@
+﻿  background.cpp
+  Source.cpp
+d:\data\opencv_prj\bkg\test\source.cpp(85): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+d:\data\opencv_prj\bkg\test\source.cpp(278): warning C4101: 'countMot': unreferenced local variable
+  NewKalman.cpp
+  Generating Code...
+  Compiling...
+  foreground.cpp
+  KalmanProcess.cpp
+d:\data\opencv_prj\bkg\test\kalmanprocess.cpp(152): warning C4101: 'jns': unreferenced local variable
+  Generating Code...
+  Test.vcxproj -> D:\Data\OpenCV_Prj\Bkg\x64\Debug\Test.exe
+  Test.vcxproj -> D:\Data\OpenCV_Prj\Bkg\x64\Debug\Test.pdb (Partial PDB)
