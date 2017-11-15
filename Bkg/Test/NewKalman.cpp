@@ -13,15 +13,16 @@
 
 
 KalmanPoint *NewKalman(PointSeq *Point_New, int ID, int frame_count, int contourArea) {
+    /* Transition Matrix */
     const float A[] = { 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1 };
+    /* Measurement Matrix*/
     const float H[] = { 1, 0, 0, 0, 0, 1, 0, 0 };
 
     KalmanPoint *Kalmanfilter;
     Kalmanfilter = (KalmanPoint *)malloc(sizeof(KalmanPoint));
     CvKalman *Kalman = cvCreateKalman(4, 2, 0);
 
-    float measure[2] =
-    { (float)Point_New->Point.x, (float)Point_New->Point.y };
+    float measure[2] = { (float)Point_New->Point.x, (float)Point_New->Point.y };
     CvMat measurement = cvMat(2, 1, CV_32FC1, measure);
 
     // initialize the Kalman filter
@@ -36,10 +37,12 @@ KalmanPoint *NewKalman(PointSeq *Point_New, int ID, int frame_count, int contour
     cvmSet(Kalman->state_post, 0, 0, Point_New->Point.x);
     cvmSet(Kalman->state_post, 1, 0, Point_New->Point.y);
 
-    // use Kalman  filter to predict the position of the centroid
-    const CvMat *prediction = cvKalmanPredict(Kalman, 0);
-    // use the measurement to correct the position
-    const CvMat *correction = cvKalmanCorrect(Kalman, &measurement);
+    /* Debug */
+    //// use Kalman  filter to predict the position of the centroid
+    //const CvMat *prediction = cvKalmanPredict(Kalman, 0);
+
+    //// use the measurement to correct the position
+    //const CvMat *correction = cvKalmanCorrect(Kalman, &measurement);
 
     /*
     // test code
@@ -70,15 +73,16 @@ KalmanPoint *NewKalman(PointSeq *Point_New, int ID, int frame_count, int contour
     }
     */
     //nilai 1 = motor;nilai 2 = mobil;nilai 3 = truk sedang;nilai 4 = truk besar;nilai 0 = undefined;
-    if (Kalmanfilter->contourArea >= 4000
-        && Kalmanfilter->contourArea <= 7000) {
+    if (Kalmanfilter->contourArea >= 4000 && Kalmanfilter->contourArea <= 7000)
+    {
         Kalmanfilter->jenis = 2;
     }
-    else if (Kalmanfilter->contourArea > 7000
-        && Kalmanfilter->contourArea <= 12000) {
+    else if (Kalmanfilter->contourArea > 7000 && Kalmanfilter->contourArea <= 12000)
+    {
         Kalmanfilter->jenis = 3;
     }
-    else if (Kalmanfilter->contourArea > 12000) {
+    else if (Kalmanfilter->contourArea > 12000) 
+    {
         Kalmanfilter->jenis = 4;
     }
     else {
