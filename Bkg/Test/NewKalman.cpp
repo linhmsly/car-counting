@@ -72,6 +72,7 @@ KalmanPoint *NewKalman(PointSeq *Point_New, int ID, int frame_count, int contour
     Kalmanfilter->jenis = 3;
     }
     */
+
     //nilai 1 = motor;nilai 2 = mobil;nilai 3 = truk sedang;nilai 4 = truk besar;nilai 0 = undefined;
     if (Kalmanfilter->contourArea >= 4000 && Kalmanfilter->contourArea <= 7000)
     {
@@ -88,6 +89,7 @@ KalmanPoint *NewKalman(PointSeq *Point_New, int ID, int frame_count, int contour
     else {
         Kalmanfilter->jenis = 0;
     }
+
     //Kalmanfilter->jenis= 0;//tambahan 26 januari 2016
     Kalmanfilter->Loss = 0;
 

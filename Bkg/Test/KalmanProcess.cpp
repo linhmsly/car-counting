@@ -57,7 +57,7 @@ PointSeqList KalmanProcess(KalmanPoint *Kalmanfilter, PointSeqList Points,
         pt = pt->next;
     }
 
-    printf("direction %f\n",sqrt(direction));
+   /* printf("direction %f\n",sqrt(direction));*/
     if (sqrt(direction) > 30) {
         Point_Find = Centroid;
         find = NULL;
@@ -131,7 +131,7 @@ PointSeqList KalmanProcess(KalmanPoint *Kalmanfilter, PointSeqList Points,
 
     //Them thu tran bo nho
 
-    char jns[10];
+    //char jns[10];
     /*
     if (Kalmanfilter->jenis == 1) {
     sprintf(jns, "mobil");
@@ -140,19 +140,20 @@ PointSeqList KalmanProcess(KalmanPoint *Kalmanfilter, PointSeqList Points,
     } else {
     sprintf(jns, "undefined");
     }*/
-    //nilai 1 = motor;nilai 2 = mobil;nilai 3 = truk sedang;nilai 4 = truk besar;nilai 0 = undefined;
-    if (Kalmanfilter->jenis == 2) {
-       // sprintf(jns, "mobil");  // Oto con
-    }
-    else if (Kalmanfilter->jenis == 3) { // Xe tai hang trung
-        //sprintf(jns, "truk sedang");
-    }
-    else if (Kalmanfilter->jenis == 4) {  // Xe tai hang nang
-      //  sprintf(jns, "truk besar");
-    }
-    else {
-      //  sprintf(jns, "undefined");  // Undefined
-    }
+
+    ////nilai 1 = motor;nilai 2 = mobil;nilai 3 = truk sedang;nilai 4 = truk besar;nilai 0 = undefined;
+    //if (Kalmanfilter->jenis == 2) {
+    //   // sprintf(jns, "mobil");  // Oto con
+    //}
+    //else if (Kalmanfilter->jenis == 3) { // Xe tai hang trung
+    //    //sprintf(jns, "truk sedang");
+    //}
+    //else if (Kalmanfilter->jenis == 4) {  // Xe tai hang nang
+    //  //  sprintf(jns, "truk besar");
+    //}
+    //else {
+    //  //  sprintf(jns, "undefined");  // Undefined
+    //}
 
     //cvPutText(final, jns, cvPoint(state_pt_now.x, state_pt_now.y + 15), &font,
        // CV_RGB(255, 0, 0));
