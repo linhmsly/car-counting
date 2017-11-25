@@ -1,10 +1,3 @@
-/*
-* NewKalman.cpp
-*
-*  Created on: Jan 19, 2016
-*      Author: bisman
-*/
-
 #include <stdio.h>
 #include <iostream>
 #include <opencv2\highgui\highgui.hpp>
@@ -85,7 +78,7 @@ KalmanPoint *NewKalman(PointSeq *Point_New, int ID, int frame_count, int contour
     {
         Kalmanfilter->jenis = 3;
     }
-    else if (Kalmanfilter->contourArea > 12000) 
+    else if (Kalmanfilter->contourArea > 12000)
     {
         Kalmanfilter->jenis = 4;
     }

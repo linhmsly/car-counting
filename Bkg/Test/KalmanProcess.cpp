@@ -1,10 +1,3 @@
-/*
-* KalmanProcess.cpp
-*
-*  Created on: Jan 19, 2016
-*      Author: bisman
-*/
-
 #include <opencv\cv.h>
 #include <opencv2\highgui\highgui.hpp>
 #include <ctype.h>
@@ -99,7 +92,7 @@ PointSeqList KalmanProcess(KalmanPoint *Kalmanfilter, PointSeqList Points,
     int delta_x = abs(Kalmanfilter->Point_now.x - Kalmanfilter->Point_pre.x);
     int delta_y = abs(Kalmanfilter->Point_now.y - Kalmanfilter->Point_now.y);
     //errrorrrr stop reflesh
-    if (delta_x <= 2 && delta_y <= 2) 
+    if (delta_x <= 2 && delta_y <= 2)
     {
         *StopReflesh = 1;
     }

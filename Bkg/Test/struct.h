@@ -1,10 +1,3 @@
-/*
-* struct.h
-*
-*  Created on:
-*      Author:
-*/
-
 #ifndef STRUCT_H_
 #define STRUCT_H_
 
