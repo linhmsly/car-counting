@@ -1,11 +1,3 @@
-/*
-* kalmanTest1.cpp
-*
-*  Created on:
-*      Author:
-*/
-
-//#include <sys/resource.h> // memory management.
 #include <opencv2\highgui\highgui.hpp>
 #include <opencv2\imgproc\imgproc.hpp>
 #include <stdint.h>
@@ -37,7 +29,6 @@ PointSeqList KalmanProcess(KalmanPoint *Kalmanfilter, PointSeqList Points, IplIm
 int main() {
     filterList List = NULL;
     int key;
-    //int time = GetTickCount();
 
     /*Number of car*/
     int counterCar = 0;
@@ -131,7 +122,7 @@ int main() {
 
                 kalman_num++;
                 ID++;
-                cout << ID << endl;
+                //cout << ID << endl;
                 Kalman_Now->next = List;
                 List = Kalman_Now;
                 if (List->next) {
@@ -209,14 +200,12 @@ int main() {
                     if (k == List) {
                         List = List->next;
                         delete[] k;
-                        //free(k);                  //avoid memory leak
                         k = List;
                     }
                     else {
                         if (k->next == NULL) {
                             k = k->pre;
                             delete[] k->next;
-                            //free(k->next);                    //avoid memory leak
                             k->next = NULL;
                         }
                         else {
@@ -225,7 +214,6 @@ int main() {
                             k->pre->next = k->next;
                             k->next->pre = k->pre;
                             delete[] k;
-                            //free(k);                  //avoid memory leak
                             k = s;
                         }
                     }
@@ -261,12 +249,11 @@ int main() {
                     }
                     s = p->next;
                     delete[] p;
-                    //free(p);                  //avoid memory leak
                     p = s;
                 }
             }
         }
-        //          printf("%d\n",kalman_num);  // display the number of the filters
+                //  printf("%d\n",kalman_num);  // display the number of the filters
 
         //******************************************************
 
@@ -319,17 +306,6 @@ int main() {
         char path[255];
         strcpy(path, "out.jpg");
         cvSaveImage(path, frame_now);
-
-        //if (i == fps * 60 * 1) {
-        //    counterCar = 0;
-        //    counterBus = 0;
-        //    counterTruck = 0;
-        //    i = 0;
-        //    sumspeed1 = 0.0;
-        //    avgspeed1 = 0.0;
-        //    n1 = 0;
-        //    cout << "kirim database///////////////////////////////////////////////" << endl;
-        //}
 
         cvReleaseImage(&frame_now);
         cvReleaseImage(&frame_gray_now);

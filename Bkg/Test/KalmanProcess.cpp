@@ -123,8 +123,9 @@ PointSeqList KalmanProcess(KalmanPoint *Kalmanfilter, PointSeqList Points,
     char text[10];
     //sprintf(text, "ID:%d", Kalmanfilter->ID);
     //sprintf(text, "x:%d", state_pt_now.x);
+    /* Print countour */
     sprintf(text, "%d", Kalmanfilter->contourArea);//test 26 januari 2016
-    //sprintf(text, "%d", Kalmanfilter->jenis); //test 26 januari 2016
+    sprintf(text, "%d", Kalmanfilter->jenis); //test 26 januari 2016
     CvFont font;
     cvInitFont(&font, CV_FONT_VECTOR0, 0.5f, 0.5f, 0, 2);
     cvPutText(final, text, state_pt_now, &font, CV_RGB(255, 0, 0));

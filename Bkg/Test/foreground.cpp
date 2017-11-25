@@ -1,14 +1,6 @@
-/*
-* foreground.cpp
-*
-*  Created on: Jan 19, 2016
-*      Author: bisman
-*/
-
 #include <stdio.h>
 #include <opencv\cv.h>
-//#include <opencv2\highgui\highgui.hpp>
-#include <opencv2/highgui.hpp>
+#include <opencv2\highgui\highgui.hpp>
 #include <ctype.h>
 #include "struct.h"
 

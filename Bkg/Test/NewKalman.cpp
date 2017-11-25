@@ -6,6 +6,7 @@
 */
 
 #include <stdio.h>
+#include <iostream>
 #include <opencv2\highgui\highgui.hpp>
 #include <opencv2\highgui.hpp>
 #include <ctype.h>
@@ -74,6 +75,8 @@ KalmanPoint *NewKalman(PointSeq *Point_New, int ID, int frame_count, int contour
     */
 
     //nilai 1 = motor;nilai 2 = mobil;nilai 3 = truk sedang;nilai 4 = truk besar;nilai 0 = undefined;
+    printf("Contour : %d\n", Kalmanfilter->contourArea);
+
     if (Kalmanfilter->contourArea >= 4000 && Kalmanfilter->contourArea <= 7000)
     {
         Kalmanfilter->jenis = 2;
